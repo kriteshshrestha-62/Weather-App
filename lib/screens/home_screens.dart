@@ -28,9 +28,7 @@ class _HomeScreensState extends State<HomeScreens> {
       print(e);
       setState(() => _isLoading = false);
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Error fetching weather data')),
-        );
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Error fetching weather data')));
       }
     }
   }
@@ -43,26 +41,11 @@ class _HomeScreensState extends State<HomeScreens> {
         height: double.infinity,
 
         decoration: BoxDecoration(
-          gradient:
-              _weather != null &&
-                  _weather!.description.toLowerCase().contains('rain')
-              ? LinearGradient(
-                  colors: [Colors.black, Colors.blue],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                )
-              : _weather != null &&
-                    _weather!.description.toLowerCase().contains('clear')
-              ? const LinearGradient(
-                  colors: [Colors.orangeAccent, Colors.brown],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                )
-              : const LinearGradient(
-                  colors: [Colors.orangeAccent, Colors.lightBlueAccent],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
+          gradient: _weather != null && _weather!.description.toLowerCase().contains('rain')
+              ? LinearGradient(colors: [Colors.black, Colors.blue], begin: Alignment.topCenter, end: Alignment.bottomCenter)
+              : _weather != null && _weather!.description.toLowerCase().contains('clear')
+              ? const LinearGradient(colors: [Colors.orangeAccent, Colors.brown], begin: Alignment.topCenter, end: Alignment.bottomCenter)
+              : const LinearGradient(colors: [Colors.orangeAccent, Colors.lightBlueAccent], begin: Alignment.topCenter, end: Alignment.bottomCenter),
         ),
         child: SingleChildScrollView(
           child: Padding(
@@ -70,10 +53,7 @@ class _HomeScreensState extends State<HomeScreens> {
             child: Column(
               children: [
                 const SizedBox(height: 50),
-                const Text(
-                  'My Weather App',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                ),
+                const Text('Our Weather App', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 25),
                 TextField(
                   controller: _controller,
@@ -83,10 +63,7 @@ class _HomeScreensState extends State<HomeScreens> {
                     hintStyle: const TextStyle(color: Colors.blue),
                     filled: true,
                     fillColor: const Color.fromARGB(117, 158, 158, 158),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none,
-                    ),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -96,9 +73,7 @@ class _HomeScreensState extends State<HomeScreens> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 163, 163, 163),
                     foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                   ),
                 ),
                 if (_isLoading)
