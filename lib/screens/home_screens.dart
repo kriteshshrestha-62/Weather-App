@@ -19,7 +19,7 @@ class _HomeScreensState extends State<HomeScreens> {
   Future<void> _getWeather() async {
     setState(() => _isLoading = true);
     try {
-      final weather = await _weatherServices.featchweather(_controller.text);
+      final weather = await _weatherServices.fetchweather(_controller.text);
       setState(() {
         _weather = weather;
         _isLoading = false;
@@ -41,6 +41,7 @@ class _HomeScreensState extends State<HomeScreens> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
+
         decoration: BoxDecoration(
           gradient:
               _weather != null &&
@@ -53,7 +54,7 @@ class _HomeScreensState extends State<HomeScreens> {
               : _weather != null &&
                     _weather!.description.toLowerCase().contains('clear')
               ? const LinearGradient(
-                  colors: [Colors.orangeAccent, Colors.blueAccent],
+                  colors: [Colors.orangeAccent, Colors.brown],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 )
@@ -70,7 +71,7 @@ class _HomeScreensState extends State<HomeScreens> {
               children: [
                 const SizedBox(height: 50),
                 const Text(
-                  'Weather App',
+                  'My Weather App',
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 25),
