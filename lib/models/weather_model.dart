@@ -1,4 +1,4 @@
- class Weather {
+ class WeatherModel {
   final String cityname;
   final double temperature;
   final String description;
@@ -7,7 +7,7 @@
   final int sunrise;
   final int sunset;
 
-  Weather({
+  WeatherModel({
     required this.cityname,
     required this.description,
     required this.humidity,
@@ -17,8 +17,8 @@
     required this.windspeed,
   });
 
-  factory Weather.fromJson(Map<String, dynamic> json) {
-    return Weather(
+  factory WeatherModel.fromJson(Map<String, dynamic> json) {
+    return WeatherModel(
       cityname: json['name'],
     description: json['weather'][0]['description'],
       humidity: json['main']['humidity'],

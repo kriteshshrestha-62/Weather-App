@@ -4,7 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:weather/models/weather_model.dart';
 
 class WeatherCard extends StatelessWidget {
-  final Weather weather;
+  final WeatherModel weather;
   const WeatherCard({super.key, required this.weather});
 
   String formateTime(int timestemp) {
